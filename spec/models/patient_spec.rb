@@ -32,7 +32,7 @@ describe Patient do
 		it {should allow_value("sir.joy@gmail.net").for(:email)}
 	end	
 
-	
+
 	describe "Validates good phone numbers" do
 		it {should allow_value("97444548624").for(:phone)}
 	end	
@@ -48,5 +48,43 @@ describe Patient do
 
 	describe "Rejects invalid gender" do
 		it {should_not allow_value("Discrete").for(:gender)}
+	end	
+
+	describe "Use factories for setup" do
+	
+		before (:each) do
+			@srinjoy = FactoryGirl.create(:patient)
+		    @smita =  FactoryGirl.create(:patient, :first_name => "Smita", :gender => "Female", :phone => "+974-6617-7820")
+		end
+
+		it "creates valid objects" do
+			@srinjoy.should be_valid	
+			@smita.should be_valid
+		end
+
+		it "has the right attribute information" do
+			@srinjoy.first_name.should == "Srinjoy"
+			@smita.first_name.should == "Smita"
+			@smita.phone.should == "97466177820"
+		end
+
+		it "returns all the records in alphabetical order" do
+			Patient.alphabetical.map{|o| o.first_name}.should == ["Smita", "Srinjoy"]
+		end
+
+		
+		it "returns the proper name correctly" do
+			@srinjoy.proper_name.should == "Srinjoy Chakravarty"
+		end
+
+		it "returns the name correctly" do
+			@srinjoy.name.should == "Chakravarty, Srinjoy"
+		end
+
+		it "should strip everything but numbers for the phone" do
+			@smita.phone.should == "97466177820"
+		end
+
+		
 	end	
 end

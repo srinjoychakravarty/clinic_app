@@ -24,7 +24,7 @@ describe PatientsController do
   # Patient. As you add validations to Patient, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:email => "chaxz93@gmail.com", :password => "srinjoy93", :password_confirmation => "srinjoy93", :date_of_birth => 4.years.ago.to_date, :first_name => "Srinjoy", :gender => "male", :health_id => 1, :last_name => "Chakravarty", :phone => "97455641191"}
+    {:email => "chaxz93@gmail.com", :password => "srinjoy93", :password_confirmation => "srinjoy93", :date_of_birth => 4.years.ago.to_date, :first_name => "Srinjoy", :gender => "Male", :health_id => 1, :last_name => "Chakravarty", :phone => "97455641191"}
   end
 
   # This should return the minimal set of values that should be in the session
