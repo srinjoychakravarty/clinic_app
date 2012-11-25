@@ -2,6 +2,7 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
+    @title = "Patient Directory"
     @patients = Patient.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
+    @title = "Patient Created"
     @patient = Patient.find(params[:id])
 
     respond_to do |format|
@@ -35,6 +37,7 @@ class PatientsController < ApplicationController
 
   # GET /patients/1/edit
   def edit
+    @title = "Edit Details"
     @patient = Patient.find(params[:id])
   end
 

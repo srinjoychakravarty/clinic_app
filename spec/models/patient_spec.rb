@@ -83,8 +83,6 @@ describe Patient do
 
 		it "should strip everything but numbers for the phone" do
 			@smita.phone.should == "97466177820"
-		end
-
-		
+		end		
 	end	
 end

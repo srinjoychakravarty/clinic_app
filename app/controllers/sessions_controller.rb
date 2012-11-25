@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-   title = "Log in"
+   @title = "Log in"
   end
 
   def create
